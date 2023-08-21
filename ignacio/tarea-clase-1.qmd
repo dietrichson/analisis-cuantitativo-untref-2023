@@ -1,0 +1,20 @@
+---
+title: "Presentación"
+author: "Ignacio Román"
+format: html
+editor: visual
+---
+\
+---
+
+## ¿Quién soy?
+
+Soy un consultor de estrategias y productos digitales que trabaja para el sector público y privado. Estudié comunicación en la Universidad y algo de programación por mi cuenta.
+
+## ¿Qué tipo de datos uso/quiero usar?
+
+Me interesan los datos lingüísticos y el uso de algoritmos de análisis de sentimiento y similares. También me interesa el uso de inteligencia artificial en proyectos de análisis discursivo.
+
+## ¿Cuál es mi proyecto?
+
+Aún no tengo un proyecto. Pero me interesan varias temas que tienen que ver con el análisis del discurso público.
