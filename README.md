@@ -1,5 +1,6 @@
-# Análisis Cuantitativo. Universidad Tres de Febrero
-Bienvenidos! Este repositorio contiene los archivos y códigos del seminario de análisis cuantitativo.
+# Análisis Cuantitativo.
+
+¡Bienvenidos! Este repositorio contiene los archivos y códigos del seminario de análisis cuantitativo.
 
 ## Material de apoyo y consulta
 
@@ -17,6 +18,7 @@ Bienvenidos! Este repositorio contiene los archivos y códigos del seminario de 
 
 -   Crear un Personal Access Token (PAT) y guardarlo.
 -   Ponerle una fecha de expiración que coincida con el fin del semestre
+-   Configurar «two-factor authentication»
 
 ## Para verificar que está todo conectado
 
