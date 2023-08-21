@@ -1,0 +1,18 @@
+---
+title: "Presentación"
+author: "Aleksander (Sasha) Dietrichson"
+format: html
+editor: visual
+---
+
+## Quién soy?
+
+Soy Aleksander Dietrichson. Soy profesor de ciencia de datos e inteligencia artificial.
+
+## Qué tipo de datos uso?
+
+A mí me gusta mucho analizar datos linguististicos, y trabajar con model de procesamiento de lenguaje natural.
+
+## Mi proyecto es
+
+Actualmente estoy desarrollando una inteligencia artificial para entender mejor un video-juego.
