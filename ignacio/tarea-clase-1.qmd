@@ -9,7 +9,7 @@ editor: visual
 
 ## ¿Quién soy?
 
-Soy un consultor de estrategias y productos digitales que trabaja para el sector público y privado. Estudié comunicación en la Universidad y algo de programación por mi cuenta.
+Soy consultor de estrategias y productos digitales que trabaja para el sector público y privado. Estudié comunicación en la Universidad y algo de programación por mi cuenta.
 
 ## ¿Qué tipo de datos uso/quiero usar?
 
