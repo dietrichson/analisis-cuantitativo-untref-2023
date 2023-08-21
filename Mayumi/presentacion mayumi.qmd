@@ -1,0 +1,20 @@
+---
+title: "Presentación"
+author: "Mayumi Romina Higa"
+format: html
+editor: visual
+---
+
+## ¡Hola!
+
+Soy Lic. en Conservación y Restauración de Bienes Culturales (UNA). Me especialicé en Preservación y Restauración Audiovisual (UBA). También cursé una diplomatura en Geomática, donde incursioné en el análisis de datos espaciales.
+
+He trabajado con diversidad de materiales como conservadora y digitalizadora pero en actualidad me desempeño en forma independiente en archivos audiovisuales y proyectos de investigación.
+
+## ¿Qué tipo de datos uso?
+
+En mi tarea diaria utilizo datos relacionados a materiales de archivo.
+
+## Mi proyecto es...
+
+Aún no poseo un proyecto en concreto para la cursada, pero en breve comienzo un proyecto laboral para la catalogación y digitalización de una colección de VHS.
