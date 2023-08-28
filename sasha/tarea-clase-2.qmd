@@ -1,0 +1,30 @@
+---
+title: "Tarea para la clase 2"
+author: "Aleksander Dietrichson"
+format: html
+editor: visual
+---
+
+Si tienen datos, es sobre los datos que tengan, sino pueden eligir otra fuente o usar gutenbergr
+
+## Los datos que tengo:
+
+Estoy analizando *Novelas y Teatro* de Cervantes. Los bajé del proyecto Gutenberg. Técnica de muestreo: De los tres libros de Cervantes disponibles eligí uno al azar.
+
+-   Hasta ahora estoy contando palabras, son números enteros.
+
+-   Mi nivel de medición es de ratio.
+
+## Posibles análisis
+
+-   Sentimiento el tiempo narrativo
+
+-   Extraer los temas por capítulo.
+
+## Mostrar que se pueden cargar los datos
+
+-   Cargar datos
+
+-   Análsis mínimo
+
+-   Visualización

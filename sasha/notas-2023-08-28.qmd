@@ -1,0 +1,65 @@
+---
+title: "Notas - 2023-08-28"
+subtitle: "Variables y su clasificación"
+format: html
+editor: visual
+---
+
+## Las tres maneras de clasificación
+
+### Por su nivel de medición
+
+-   Nominal
+
+    -   Si/No - binario (0/1)
+
+    -   Sexo: F/M
+
+-   Ordinal
+
+    -   Muy malo, malo, regular, bueno y muy bueno.
+
+    -   Muy malo \< malo \< regular \< bueno \< muy bueno.
+
+-   De intervalo (intervalar)
+
+    -   Temperatura
+
+        -   10 grados es más que 0, 20 grades más que 10 y, la distancia (de 10 grados) es igual en los dos intervalos.
+
+-   Ratio
+
+    -   Edad, peso etcétera
+
+    -   20 años = 2 veces 10 años.
+
+## Por su precisión
+
+-   87 kilos o 87132 gramos (87,123 kilos) 87,12378971.
+
+-   Precisión no es igual a exactitud.
+
+    (Un numero de *float* tiene precisión por defecto, y un número de *integer* no lo tiene.)\
+
+    ```{r}
+     my_float <- 1.1
+     my_float_2 <- 1
+     my_integer <- 1L
+     
+    ```
+
+## Por su relación con otras variables
+
+-   Dependientes e independientes
+
+-   Ejemplo de peso y estatura:
+
+    -   Independiente: estatura
+
+    -   Dependiente: peso
+
+    -   peso \~ estatura
+
+    -   peso \~ estatura + genética + sexo + edad + ...
+
+-   Ejemplo: la población de cisnes baja con natalidad.
