@@ -1,0 +1,18 @@
+---
+title: "Presentación"
+author: Marcela Saffe
+format: html
+editor: visual
+---
+
+## Quién soy?
+
+Soy Marce Saffe Bibliotecaria, Licenciada en Archivologia
+
+## Qué tipo de datos uso?
+
+Datos relacionados con los servicos que presta la biblioteca donde trabajo, autores, temas, libros, usuarios, etc
+
+## Mi proyecto es
+
+Todavia no he decidido el tema
