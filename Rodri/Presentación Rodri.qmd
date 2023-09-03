@@ -1,0 +1,22 @@
+---
+title: "Presentación"
+author: "Rodrigo Sosa Toranzo"
+format: revealjs
+editor: visual
+---
+
+## ¿Quién soy?
+
+Soy Rodrigo Sosa Toranzo, Lic. en Producción en Radio y Televisión por la Universidad Nacional de San Luis.
+
+## ¿Qué tipo de datos uso?
+
+Estoy interesado en trabajar con datos visuales (imagenes)
+
+## Mi proyecto es
+
+Realizar un análisis de la estética anime (anime aesthetic) en los posteos de usuarios en redes sociales (instagram, Pinterest, Tumblr)
+
+```{r}
+1 + 1
+```
