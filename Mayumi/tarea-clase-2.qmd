@@ -1,0 +1,15 @@
+## Los datos que tengo:
+
+Listado en formato .csv de la Comisión Argentina de Refugiados y Migrantes (CAREF) sobre expedientes de refugiados y refugiadas provenientes de distintos países de latinoamérica, durante el período 1973-1989.
+
+Paquete de R "presentes" que cruza información del registro oficial de víctimas del terrorismo de Estado durante los años 1966-1983.
+
+## Posibles análisis:
+
+-   Análisis demográfico.
+
+-   Geolocalización de sitios clandestino de detención y tortura.
+
+```{r}
+
+```
