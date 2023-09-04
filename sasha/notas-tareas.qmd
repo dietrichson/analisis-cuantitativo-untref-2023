@@ -1,0 +1,8 @@
+---
+title: "Notas de Clase"
+author: "Aleksander Dietrichson"
+format: html
+editor: visual
+---
+
+## Paquete presententes

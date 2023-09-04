@@ -1,0 +1,71 @@
+---
+title: "Notas clase 3"
+author: "Aleksander Dietrichson"
+format: html
+editor: visual
+---
+
+## Ejemplo distribución de frecuencias
+
+```{r}
+## Cargar librerías que vamos a usar
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+
+novelas_y_teatro <- 
+  gutenberg_download(15115)
+
+```
+
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  table()
+```
+
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  ggplot(aes(x=n_words))+
+  geom_histogram()
+```
+
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  filter(n_words > 0) %>% 
+  ggplot(aes(x=n_words))+
+  geom_histogram()
+```
+
+```{r}
+library(tidytext)
+novelas_y_teatro %>%
+  unnest_tokens(output = word, input = text) %>% 
+  group_by(word) %>% 
+  count() %>% 
+  arrange(desc(freq))
+  
+```
+
+```{r}
+novelas_y_teatro %>%
+  unnest_tokens(output = word, input = text) %>% 
+  group_by(word) %>% 
+  count() %>% 
+  ggplot(aes(x=freq))+
+  geom_histogram()+
+  scale_x_log10()
+```
+
+### Tarea
+
+1.  Generar tabla de frecuencia de sus datos
+
+2.  Generar histograma de los mismos
+
+3.  Interpretar y determinar si los datos tienen sesgo.

@@ -1,0 +1,14 @@
+---
+title: "Tarea para la clase 3"
+author: "Aleksander Dietrichson"
+format: html
+editor: visual
+---
+
+### Tarea
+
+1.  Generar tabla de frecuencia de sus datos
+
+2.  Generar histograma de los mismos
+
+3.  Interpretar y determinar si los datos tienen sesgo.
