@@ -1,0 +1,69 @@
+---
+title: "tarea-clase-3"
+author: "Mayumi Romina Higa"
+format: html
+editor: visual
+---
+
+## Tarea Clase 3
+
+1\. Generar tabla de frecuencia de sus datos
+
+2\. Generar histograma de los mismos
+
+3\. Interpretar y determinar si los datos tienen sesgo.
+
+### Instalación de paquete y dependencias
+
+```{r}
+mis_paquetes <- c("tidyverse","tidytext","plyr","geoR","presentes", "fBasics", "dplyr")
+
+for(p in mis_paquetes){
+  if(!require(p,character.only = TRUE)){ #require es similar a library, pero devuelve TRUE/FALSE
+    install.packages(p)
+    require(p)
+  } else {
+    library(p,character.only = TRUE)
+  }
+  
+}
+```
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(presentes)
+library(fBasics)
+library(dplyr)
+```
+
+## Ejemplo de distribución de frecuencias
+
+(Ejecuta en RStudio pero no en posit.cloud)
+
+```{r}
+nac_table <- unnest(presentes::parque_de_la_memoria, nacionalidad) %>% 
+  select(nacionalidad) %>% 
+  gather(value = Nacionalidad) %>% 
+  group_by(Nacionalidad) %>%
+  filter(!is.na(Nacionalidad)) %>% 
+  summarise(Cantidad = n()) %>%
+  arrange(desc(Cantidad)) %>% 
+  top_n(10) 
+
+view(nac_table)
+```
+
+## Ejercicio de clase anterior
+
+```{r}
+my_data <- presentes::parque_de_la_memoria %>% 
+  filter(nacionalidad == "Chilena")
+
+ggplot(data = my_data)+
+  geom_histogram(aes(x = as.numeric(ano_en_monumento)), stat = "count")+
+  labs(subtitle= "Víctimas de nacionalidad chilena, por año",
+       x = "", y = "",
+       caption = "Fuente: Monumento del Parque de la Memoria")+
+    theme_minimal()
+```

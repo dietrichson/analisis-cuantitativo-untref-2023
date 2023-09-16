@@ -1,0 +1,118 @@
+---
+title: "Notas Clase 4"
+author: "Aleksander Dietrichson"
+format: html
+editor: visual
+---
+
+## Setup
+
+Cargo paquetes tidyverse y tidyr.
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tidyr)
+library(presentes)
+```
+
+## Tabla de Frequencias
+
+```{r}
+parque_de_la_memoria %>% 
+  dplyr::group_by(nacionalidad) %>% 
+  dplyr::summarize(
+    freq = dplyr::n()
+  )
+
+```
+
+```{r}
+my_data <- parque_de_la_memoria
+detach("package:plyr")
+my_data %>% 
+  group_by(nacionalidad) %>% 
+  summarize(
+    Freq = n()
+  ) %>% 
+  filter(!is.na(nacionalidad)) %>% 
+  arrange(desc(Freq)) %>% 
+  head(10)
+```
+
+```{r}
+# Exploremos
+names(my_data)
+```
+
+## Análisis descriptivo de la edad de las victimas
+
+-   Continua
+
+-   De ratio
+
+    Primero visualicemos los datos
+
+```{r}
+
+my_data <- my_data %>% 
+  mutate(edad = as.numeric(edad)) 
+
+my_data %>% 
+  ggplot(aes(x=edad))+
+  geom_histogram()
+```
+
+Observamos una distribución que puede asemejarse a una distrubución normal.
+
+```{r}
+shapiro.test(my_data$edad %>% sample(size=5000))
+```
+
+No, no es normal.
+
+### Medidas de centralización
+
+```{r}
+mean(my_data$edad, na.rm = TRUE)
+median(my_data$edad, na.rm = TRUE)
+```
+
+#### Cuantos datos faltantes hay?
+
+```{r}
+sum(is.na(my_data$edad))
+```
+
+### Medidas de dispersión
+
+```{r}
+sd(my_data$edad, na.rm = TRUE)
+mad(my_data$edad, na.rm = TRUE)
+```
+
+```{r}
+range(my_data$edad, na.rm = TRUE)
+```
+
+Analizar por quartiles
+
+```{r}
+my_data %>% 
+  ggplot(aes(edad, group=1))+
+  geom_boxplot()
+```
+
+```{r}
+boxplot(my_data$edad)
+```
+
+```{r}
+quantile(my_data$edad, na.rm = TRUE)
+```
+
+## La tarea
+
+-   Realizar un alálisis descriptivo de otra variable del conjunto de datos (dataset)
+
+-   U otro dataset que tengas a disposición.
