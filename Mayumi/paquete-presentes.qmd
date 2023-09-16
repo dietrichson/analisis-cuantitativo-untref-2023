@@ -1,0 +1,72 @@
+---
+title: "paquete-presentes"
+author: "Mayumi Romina Higa"
+format: html
+editor: visual
+---
+
+## Paquete presentes
+
+El paquete es una compilación y digitalización del registro oficial de víctimas del terrorismo de Estado en Argentina. Los datos originales provienen de RUVTE-ILID (2019) \<<https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe>\> y \<<http://basededatos.parquedelamemoria.org.ar/registros/>\>.
+
+### Instalación de paquete y dependencias
+
+```{r}
+install.packages("tidyverse")
+install.packages("tidytext")
+install.packages("plyr")
+install.packages("geoR")
+install.packages("presentes")
+install.packages("fBasics")
+```
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(presentes)
+library(fBasics)
+```
+
+## Prueba de filtrado por nacionalidad chilena
+
+### Base Parque de la Memoria
+
+Se encontraron 80 entradas.
+
+```{r}
+nac_chilena <- presentes::parque_de_la_memoria %>%
+  filter(nacionalidad =="Chilena")
+```
+
+### Base RUVTE
+
+Se encontraron 83 entradas.
+
+```{r}
+nac_chilena_ruvte <- (
+  presentes::victimas_accionar_represivo_ilegal %>%
+    filter(nacionalidad =="CHILENA"))
+```
+
+### Base RUVTE sin denuncia formal
+
+Se encontraron 11 entradas.
+
+```{r}
+nac_chilena_ruvte_sd <- (
+  presentes::victimas_accionar_represivo_ilegal_sin_denuncia_formal %>%
+    filter(nacionalidad =="CHILENA"))
+```
+
+## Gráficos
+
+### Cantidad de víctimas chilenas por año
+
+```{r}
+ggplot(data = presentes::parque_de_la_memoria)+
+  geom_histogram(aes(x = as.numeric(ano_en_monumento)), stat = "count")+
+  labs(subtitle= "Víctimas por año",
+       x = "", y = "",
+       caption = "Fuente: Monumento del Parque de la Memoria")+
+    theme_minimal()
+```

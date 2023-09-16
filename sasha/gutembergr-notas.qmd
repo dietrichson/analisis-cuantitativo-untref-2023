@@ -1,0 +1,99 @@
+---
+title: "Notas sobre el uso del paquete gutenbergr"
+subtitle: "Análisis lingüístico"
+author: "Aleksander Dietrichson, PhD"
+format: html
+editor: visual
+---
+
+## Paquete gutenbergr
+
+El paquete permite acceder a textos que están digitalizados y generalmente de uso libre. Es una interfaz
+
+### Instalar el paquete y dependencias
+
+```{r}
+1+1
+```
+
+```{r}
+# INSTALAR gutenbergr y dependencias si no está ya intalado
+if(!require(tidyverse)){
+  install.packages("tidyverse")
+  install.packages("tidytext")
+}
+if(!require(devtools)){
+  install.packages("devtools")
+}
+
+if(!require(gutenbergr)){
+  devtools::install_github("ropensci/gutenbergr")
+}
+```
+
+## Eligir corpus
+
+```{r}
+## Cargar librerías que vamos a usar
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+
+```
+
+Quiero ver si está Cervantes
+
+```{r}
+gutenberg_works( author == "Cervantes Saavedra, Miguel de")
+gutenberg_works(startsWith(author, "Cervantes"))
+```
+
+Vemos qué hay en la librería, en español:
+
+```{r}
+# Ojo, son DOS signos de igual
+gutenberg_works(languages = "es", author == "Cervantes Saavedra, Miguel de") 
+```
+
+Curiosamente no está *Don Quijote* en español ... Vamos con novelas y teatro. El identificador es: 15115.
+
+```{r}
+novelas_y_teatro <- 
+  gutenberg_download(15115)
+
+```
+
+Qué tenemos?
+
+```{r}
+View(novelas_y_teatro)
+```
+
+### Análisis de ejemplo
+
+Vamos a hacer un análisis de ejemplo, del cual seguramente se puede sacar ninguna conclusión, pero para practicar un poco de código.
+
+```{r}
+library(stringr)
+novelas_y_teatro %>% 
+  mutate(n_words = str_count(text,"\\w")) # contamos palabras por linea
+```
+
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  summarize(
+    Promedio = mean(n_words)
+  )
+  
+```
+
+Visualizar en *tiempo narrativo*
+
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  mutate(index = row_number()) %>%  # Agregamos index 
+  ggplot(aes(x = index, y = n_words))+
+  geom_smooth()
+```

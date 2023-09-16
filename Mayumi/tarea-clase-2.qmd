@@ -1,0 +1,11 @@
+## Datos que tengo
+
+-   Listado en formato .xls de la Comisión Argentina de Refugiados y Migrantes (CAREF) sobre expedientes de refugiados y refugiadas provenientes de distintos países de latinoamérica, especialmente de Chile, durante el período 1973-1989.
+
+-   Paquete "presentes" obtenido del CRAN. Es una compilación y digitalización del registro oficial de víctimas del terrorismo de Estado en Argentina. Los datos originales provienen de RUVTE-ILID (2019) \<<https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe>\> y \<<http://basededatos.parquedelamemoria.org.ar/registros/>\>.
+
+## Posibles análisis
+
+-   Análisis demógrafico y comparación entre datasets. Encontrar coincidencias de expedientes para su posible uso como prueba judicial.
+
+-   Análisis cuantitativo y geográfico sobre flujos migratorios durante el período de dictaduras en Latinoamérica.
