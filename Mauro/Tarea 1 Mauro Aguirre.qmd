@@ -1,0 +1,20 @@
+---
+title: "Presentación"
+author: "Mauro Aguirre"
+format: html
+editor: visual
+---
+
+## 
+
+## ¿Quién soy?
+
+Trabajo como redactor publicitario y soy licenciado en comunicación social por UNC
+
+## ¿Qué tipo de datos uso/quiero usar?
+
+Me interesan el analisis de contenido, y quizás también el sentiment analysis.
+
+## ¿Cuál es mi proyecto?
+
+Tengo un proyecto de OCR para el archivo de la memoria.
