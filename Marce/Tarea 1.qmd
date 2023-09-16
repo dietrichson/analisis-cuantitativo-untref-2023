@@ -1,0 +1,17 @@
+---
+title: "Tarea 1"
+format: html
+editor: visual
+---
+
+## Quien soy
+
+Marce saffe Bibliotecaria Lic. en Archivologia
+
+**Que tipo de datos uso**
+
+Datos y metadatos de la biblioteca donde trabajo
+
+**tiene algun proyecto**
+
+Por el momento no
