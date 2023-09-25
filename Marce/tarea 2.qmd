@@ -97,6 +97,6 @@ novelas_y_teatro %>%
 
 ```
 
-```{gutenberg_works(startsWith(author, "Cervantes"))}
+\`\`\`{gutenberg_works(startsWith(author, "Cervantes"))}
 
-```
+\`\`\`
