@@ -1,0 +1,21 @@
+---
+title: "Tarea 1"
+author: "Rocío"
+format: html
+editor: visual
+---
+
+## Quién soy
+
+Soy Rocío Lescano profesora de historia egresada de la Universidad Nacional de Rosario.
+
+## Qué tipo de datos uso
+
+No uso datos
+
+```{}
+```
+
+## Mi proyecto es
+
+Ahora no estoy trabajando en ningún proyecto puntual.
