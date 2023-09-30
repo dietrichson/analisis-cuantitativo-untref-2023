@@ -1,0 +1,92 @@
+---
+title: "Tarea 2"
+format: html
+editor: visual
+---
+
+```{r}
+# INSTALAR gutenbergr y dependencias si no está ya intalado
+
+if(!require(tidyverse)){
+
+  install.packages("tidyverse")
+
+  install.packages("tidytext")
+
+}
+
+if(!require(devtools)){
+
+  install.packages("devtools")
+
+}
+
+if(!require(gutenbergr)){
+
+  devtools::install_github("ropensci/gutenbergr")
+
+}
+```
+
+## Elegir Corpus  
+
+```{r}
+## Cargar librerías que vamos a usar
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+```
+
+Quiero ver si está Cervantes
+
+```{r}
+gutenberg_works( author == "Cervantes Saavedra, Miguel de")
+```
+
+Veamos qué hay en la librería en español\
+
+```{r}
+# Ojo, son DOS signos de igual
+gutenberg_works(languages = "es", author == "Cervantes Saavedra, Miguel de") 
+```
+
+Curiosamente no está Cervantes en Español
+
+```{r}
+novelas_y_teatro <- 
+  gutenberg_download(15115)
+```
+
+Qué tenemos?
+
+```{r}
+View(novelas_y_teatro)
+```
+
+### Análisis de ejemplo
+
+Vamos a hacer un análisis de ejemplo, del cual seguramente se puede sacar ninguna conclusión, pero para practicar un poco de código.
+
+```{r}
+library(stringr)
+novelas_y_teatro %>% 
+  mutate(n_words = str_count(text,"\\w")) # contamos palabras por linea
+```
+
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  summarize(
+    Promedio = mean(n_words)
+  )
+```
+
+Visualizar en *tiempo narrativo*
+
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  mutate(index = row_number()) %>%  # Agregamos index 
+  ggplot(aes(x = index, y = n_words))+
+  geom_smooth()
+```

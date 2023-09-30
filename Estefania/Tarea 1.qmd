@@ -1,0 +1,17 @@
+---
+title: "Presentación Estefa - Tarea 1"
+format: html
+editor: visual
+---
+
+## Quién soy?
+
+Soy Estefania Diaz. Soy psicóloga de la Universidad EAFIT en Colombia con un Diplomado en Desarrollo Integral y Emocional, con énfais en psicología clínica.
+
+## Qué tipo de datos uso?
+
+N/A
+
+## Mi proyecto es
+
+N/A
