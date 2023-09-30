@@ -21,12 +21,6 @@ novelas_y_teatro <-
 ```
 
 ```{r}
-
-```
-
-\`\`\`
-
-```{r}
 novelas_y_teatro %>% 
 
   mutate(n_words = stringr::str_count(text,"\\w")) %>% 
