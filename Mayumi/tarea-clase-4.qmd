@@ -1,0 +1,91 @@
+---
+title: "Tarea Clase 4"
+format: html
+editor: visual
+---
+
+## Tarea Clase 4
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tidyr)
+library(presentes)
+```
+
+### Explorar datos
+
+```{r}
+names(parque_de_la_memoria)
+```
+
+Como ya se hizo el ejemplo en clase con la variable de "edad", la variable que mejor se ajusta para la consigna sería "ano_en_monumento", aunque reconocemos que no es un variable continua per se.
+
+Entonces podemos decir que es una variable cualitativa (categórica).
+
+## Visualización de datos
+
+```{r}
+my_data <- parque_de_la_memoria %>% 
+  mutate(ano_en_monumento = as.numeric(ano_en_monumento)) 
+```
+
+```{r}
+my_data %>% 
+  ggplot(aes(x=ano_en_monumento))+
+  geom_histogram()
+```
+
+A primera vista, los datos parecen tener una distribución normal.
+
+### Test de Shapiro
+
+```{r}
+shapiro.test(my_data$ano_en_monumento %>% sample(size=5000))
+```
+
+El p-value es \< 2.2e-16, un valor menor a 0.5, por lo que podríamos decir que se trata de una distribución normal.
+
+### Medidas de centralización
+
+```{r}
+mean(my_data$ano_en_monumento, na.rm = TRUE)
+median(my_data$ano_en_monumento, na.rm = TRUE)
+```
+
+### Datos faltantes
+
+```{r}
+sum(is.na(my_data$ano_en_monumento))
+```
+
+### Medidas de dispersión
+
+```{r}
+sd(my_data$ano_en_monumento, na.rm = TRUE)
+mad(my_data$ano_en_monumento, na.rm = TRUE)
+```
+
+```{r}
+range(my_data$ano_en_monumento, na.rm = TRUE)
+```
+
+Vemos que el rango de años es de 1969 a 1983, ya que contempla a víctimas del terrorismo de estado pertenecientes a diferentes períodos dictatoriales (no necesariamente al último).
+
+### Diagrama de cajas
+
+```{r}
+my_data %>% 
+  ggplot(aes(ano_en_monumento, group=1))+
+  geom_boxplot()
+```
+
+```{r}
+boxplot(my_data$ano_en_monumento)
+```
+
+### Análisis por cuartiles
+
+```{r}
+quantile(my_data$ano_en_monumento, na.rm = TRUE)
+```
