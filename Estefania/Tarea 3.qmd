@@ -1,0 +1,132 @@
+---
+title: "Tarea 3"
+format: html
+editor: visual
+---
+
+```{r}
+# INSTALAR gutenbergr y dependencias si no está ya intalado
+if(!require(tidyverse)){
+  install.packages("tidyverse")
+  install.packages("tidytext")
+}
+if(!require(devtools)){
+  install.packages("devtools")
+}
+
+if(!require(gutenbergr)){
+  devtools::install_github("ropensci/gutenbergr")
+}
+```
+
+```{r}
+## Cargar librerías que vamos a usar
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+```
+
+```{r}
+gutenberg_works( author == "Shakespeare, William")
+gutenberg_works(startsWith(author, "Shakespeare"))
+```
+
+```{r}
+gutenberg_works(languages = "es", author == "Shakespeare, William")
+```
+
+```{r}
+Hamlet_drama_en_cinco_actos <- 
+  gutenberg_download(56454)
+```
+
+```{r}
+View(Hamlet_drama_en_cinco_actos)
+```
+
+```{r}
+library(stringr)
+Hamlet_drama_en_cinco_actos %>% 
+  mutate(n_words = str_count(text,"\\w"))
+```
+
+```{r}
+Hamlet_drama_en_cinco_actos %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  summarize(
+    Promedio = mean(n_words)
+  )
+```
+
+```{r}
+Hamlet_drama_en_cinco_actos %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  mutate(index = row_number()) %>% 
+  ggplot(aes(x = index, y = n_words))+
+  geom_smooth()
+```
+
+#Ejemplo Distribución de Frecuencias
+
+```{r}
+library(gutenbergr)
+
+library(tidyverse)
+
+library(tidytext)
+```
+
+```{r}
+gutenberg_works( author == "Shakespeare, William")
+```
+
+```{r}
+Hamlet_drama_en_cinco_actos <-
+  gutenberg_download(56454)
+```
+
+```{r}
+Hamlet_drama_en_cinco_actos %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  table()
+```
+
+```{r}
+Hamlet_drama_en_cinco_actos %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  filter(n_words > 0) %>% 
+  ggplot(aes(x=n_words))+
+  geom_histogram()
+```
+
+```{r}
+Hamlet_drama_en_cinco_actos %>% 
+
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+
+  select(n_words) %>% 
+
+  ggplot(aes(x=n_words))+
+
+  geom_histogram()
+```
+
+```{r}
+library(tidytext)
+Hamlet_drama_en_cinco_actos%>%
+  unnest_tokens(output = word, input = text)%>% 
+  group_by(word)%>% 
+  count(sort = TRUE)
+```
+
+```{r}
+Hamlet_drama_en_cinco_actos %>%
+  unnest_tokens(output = word, input = text) %>% 
+  group_by(word) %>% 
+  count() %>% 
+  ggplot(aes(x=n))+
+  geom_histogram()+
+  scale_x_log10()
+```
