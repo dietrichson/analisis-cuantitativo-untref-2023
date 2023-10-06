@@ -28,7 +28,7 @@ if(!require(gutenbergr)){
 }
 ```
 
-## Elegir Corpus  
+## Elegir Corpus
 
 ```{r}
 ## Cargar librerías que vamos a usar
@@ -40,27 +40,27 @@ library(tidytext)
 Quiero ver si está Cervantes
 
 ```{r}
-gutenberg_works( author == "Cervantes Saavedra, Miguel de")
+gutenberg_works( author == "Wilde, Oscar")
 ```
 
 Veamos qué hay en la librería en español\
 
 ```{r}
 # Ojo, son DOS signos de igual
-gutenberg_works(languages = "es", author == "Cervantes Saavedra, Miguel de") 
+gutenberg_works(languages = "es", author == "Wilde, Oscar") 
 ```
 
-Curiosamente no está Cervantes en Español
+Curiosamente no está Wilde en Español
 
 ```{r}
-novelas_y_teatro <- 
-  gutenberg_download(15115)
+The_picture_of_Dorian_Gray <- 
+  gutenberg_download(174)
 ```
 
 Qué tenemos?
 
 ```{r}
-View(novelas_y_teatro)
+View(The_picture_of_Dorian_Gray)
 ```
 
 ### Análisis de ejemplo
@@ -69,12 +69,12 @@ Vamos a hacer un análisis de ejemplo, del cual seguramente se puede sacar ningu
 
 ```{r}
 library(stringr)
-novelas_y_teatro %>% 
+The_picture_of_Dorian_Gray %>% 
   mutate(n_words = str_count(text,"\\w")) # contamos palabras por linea
 ```
 
 ```{r}
-novelas_y_teatro %>% 
+The_picture_of_Dorian_Gray %>% 
   mutate(n_words = stringr::str_count(text,"\\w")) %>% 
   summarize(
     Promedio = mean(n_words)
@@ -84,7 +84,7 @@ novelas_y_teatro %>%
 Visualizar en *tiempo narrativo*
 
 ```{r}
-novelas_y_teatro %>% 
+The_picture_of_Dorian_Gray %>% 
   mutate(n_words = stringr::str_count(text,"\\w")) %>% 
   mutate(index = row_number()) %>%  # Agregamos index 
   ggplot(aes(x = index, y = n_words))+
