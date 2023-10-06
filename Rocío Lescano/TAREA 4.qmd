@@ -1,0 +1,85 @@
+```{r}
+library(gutenbergr)
+
+library(tidyverse)
+
+library(tidytext)
+
+```
+
+```{r}
+gutenberg_works( author == "Shakespeare, William")
+```
+```{r}
+Hamlet_Drama_en_cinco_actos <- 
+  gutenberg_download(15115)
+```
+
+```{r}
+Hamlet_Drama_en_cinco_actos %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  table()
+```
+```{r}
+Hamlet_Drama_en_cinco_actos %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  filter(n_words > 0) %>% 
+  ggplot(aes(x=n_words))+
+  geom_histogram()
+```
+```{r}
+library(tidytext)
+datos <- Hamlet_Drama_en_cinco_actos %>%
+  unnest_tokens(output = word, input = text) %>% 
+  group_by(word) %>% 
+  count(sort=TRUE)
+```
+```{r}
+Hamlet_Drama_en_cinco_actos %>%
+  unnest_tokens(output = word, input = text) %>% 
+  group_by(word) %>% 
+  count() %>% 
+  ggplot(aes(x=n))+
+  geom_histogram()+
+  scale_x_log10()
+```
+```{r}
+shapiro.test(datos$n)
+```
+```{r}
+# Supongamos que deseas realizar la prueba de Shapiro-Wilk en una muestra de tamaño 100
+sample_data <- sample(datos$n, 100)
+
+# Luego, aplicas la prueba de Shapiro-Wilk a esta muestra
+shapiro.test(sample_data)
+```
+```{r}
+mean(datos$n, na.rm = TRUE)
+median(datos$n, na.rm = TRUE)
+```
+```{r}
+sum(is.na(datos$n))
+```
+```{r}
+sd(datos$n, na.rm = TRUE)
+mad(datos$n, na.rm = TRUE)
+
+```
+```{r}
+range(datos$n, na.rm = TRUE)
+```
+
+```{r}
+datos %>% 
+  ggplot(aes(n, group=1))+
+  geom_boxplot()
+```
+```{r}
+boxplot(datos$n)
+```
+```{r}
+quantile(datos$n, na.rm = TRUE)
+```
+
