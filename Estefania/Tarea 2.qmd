@@ -1,0 +1,77 @@
+---
+title: "Tarea 2"
+format: html
+editor: visual
+---
+
+```{r}
+if(!require(tidyverse)){
+  install.packages("tidyverse")
+  install.packages("tidytext")
+}
+if(!require(devtools)){
+  install.packages("devtools")
+}
+if(!require(gutenbergr)){
+  devtools::install_github("ropensci/gutenbergr")
+}
+```
+
+**Eligir Corpus**
+
+```{r}
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+```
+
+Quiero ver si está Cervantes
+
+```{r}
+gutenberg_works( author == "Cervantes Saavedra, Miguel de")
+```
+
+Vemos qué hay en la librería en Español
+
+```{r}
+gutenberg_works( languages = "es", author == "Cervantes Saavedra, Miguel de")
+```
+
+Curiosamente no está Don Quijote en Español... Vamos con Novelas y Teatro es: 15115
+
+```{r}
+novelas_y_teatro <-
+gutenberg_download(15115)
+```
+
+¿Qué tenemos?
+
+```{r}
+View(novelas_y_teatro)
+```
+
+Análisis de Ejemplo
+
+```{r}
+library(stringr)
+novelas_y_teatro %>%
+mutate(n_words = str_count(text,"\\w"))
+```
+
+```{r}
+novelas_y_teatro %>%
+ mutate(n_words = stringr::str_count(text,"\\w")) %>%
+ summarize(
+   Promedio = mean(n_words)
+)
+```
+
+Visualizar en tiempo narrativo
+
+```{r}
+novelas_y_teatro %>%
+ mutate(n_words = stringr::str_count(text,"\\w")) %>%
+ mutate(index = row_number()) %>%
+ ggplot(aes(x = index,y = n_words))+
+ geom_smooth()
+```
