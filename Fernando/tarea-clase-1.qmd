@@ -1,0 +1,24 @@
+---
+title: "Presentación"
+author: "Fernando Montes Vera"
+format: html
+editor: visual
+filters:
+  - newpagelink.lua
+---
+
+## Quién soy?
+
+Me llamo Fernando Montes Vera, soy lingüista (UBA), desarrollador, autor y editor. Recientemente he desarrollado una novela transmedia: [VideoDreams](https://videodreams.ar), que combina literatura, programación, diseño de videojuegos / web, música, arqueología digital y narrativa audiovisual.
+
+Asimismo, estoy trabajando en algunos prototipos, como [Lala](https://videodreamer.itch.io/lala), un videojuego experimental que utiliza puzzles lingüísticos.
+
+## Qué tipo de datos uso?
+
+Me interesa trabajar con datos lingüísticos, sentiment analysis, literatura hipermedia / transmedia y arqueología digital de la web.
+
+## Mi proyecto es
+
+Al momento no tengo un proyecto definido, aunque tengo un interés particular en analizar instrumentos y papers empleados en psicología forense como el MMPI 2, aunque aún no he pensado en qué abordar ni cómo.
+
+[![](https://videodreams.ar/assets/images/chapters/shadowdancer.gif){fig-alt="LOS SUEÑOS E̸̛̝̭̓L̵̘̍̚É̷̗C̶̯̏́T̷͈͑R̷̝̃Ò̸̠͚̇M̶̟͛͝A̶̗͌G̵̫̔N̷̼̈́̕É̶͎́̓T̷̲̤̚Ì̵͎̩̅C̶̬̚O̸̡̪̓S̶̥̊̽ V̴̡̯̼̍̓̀̂̒̈̏̀̓͌̉͠͝I̵̢͖̮͔͎̟̗͈̪͈̮̍͗̌̄̓̿̕̕V̸̛̼̣̞̲͖́̊͒̽̒̂̿̕͝Ë̶̞̟̩̥́̂̌̓̑̒̆̊͐͌̊͒̕Ǹ̷̢͖̺̤͇̠͈̲̪͉̆͠" fig-align="center"}](https://videodreams.ar/)
