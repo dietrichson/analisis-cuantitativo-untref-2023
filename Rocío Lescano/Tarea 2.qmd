@@ -1,0 +1,71 @@
+## Paquete gutemberg
+
+```{r}
+if(!require(tidyverse)){
+  install.packages("tidyverse")
+  install.packages("tidytext")
+}
+if(!require(devtools)){
+  install.packages("devtools")
+}
+
+if(!require(gutenbergr)){
+  devtools::install_github("ropensci/gutenbergr")
+}
+```
+```
+# #Elegir corpus
+
+```
+```{r}
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+```
+
+# # ver si está Cervantes 
+```{r}
+gutenberg_works( author == "Cervantes Saavedra, Miguel de")
+gutenberg_works(startsWith(author, "Cervantes"))
+```
+# # Buscar en la librería en español
+```{r}
+gutenberg_works(languages = "es", author == "Cervantes Saavedra, Miguel de") 
+```
+```{r}
+novelas_y_teatro <- 
+  gutenberg_download(15115)
+```
+```{r}
+novelas_y_teatro <- 
+  gutenberg_download(15115)
+```
+
+# # Novelas y teatro
+```{r}
+View(novelas_y_teatro)
+```
+
+# # Análisis del ejemplo
+```{r}
+library(stringr)
+novelas_y_teatro %>% 
+  mutate(n_words = str_count(text,"\\w")) # contamos palabras por linea
+```
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  summarize(
+    Promedio = mean(n_words)
+  )
+
+```
+# # Visualización
+```{r}
+novelas_y_teatro %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  mutate(index = row_number()) %>%  # Agregamos index 
+  ggplot(aes(x = index, y = n_words))+
+  geom_smooth()
+```
+
