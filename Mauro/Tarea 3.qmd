@@ -1,0 +1,84 @@
+---
+title: "Tarea 3"
+format: html
+editor: visual
+---
+
+## Tarea clase 3
+
+\## Ejemplo distribución de frecuencias\
+\## Cargar librerías que vamos a usar
+
+```{r}
+library(gutenbergr)
+
+library(tidyverse)
+
+library(tidytext)
+novelas_y_teatro <- 
+
+  gutenberg_download(15115)
+```
+
+```{r}
+novelas_y_teatro %>% 
+
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+
+  select(n_words) %>% 
+
+  table()
+```
+
+```{r}
+novelas_y_teatro %>% 
+
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+
+  select(n_words) %>% 
+
+  ggplot(aes(x=n_words))+
+
+  geom_histogram()
+```
+
+```{r}
+novelas_y_teatro %>% 
+
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+
+  select(n_words) %>% 
+
+  filter(n_words > 0) %>% 
+
+  ggplot(aes(x=n_words))+
+
+  geom_histogram()
+```
+
+```{r}
+library(tidytext)
+novelas_y_teatro %>%
+
+  unnest_tokens(output = word, input = text) %>% 
+
+  group_by(word)%>%
+  count(sort=TRUE)
+
+```
+
+```{r}
+novelas_y_teatro %>%
+
+  unnest_tokens(output = word, input = text) %>% 
+
+  group_by(word) %>% 
+
+  count() %>% 
+
+  ggplot(aes(x=n))+
+
+  geom_histogram()+
+
+  scale_x_log10()
+```
